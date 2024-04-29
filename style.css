@@ -1,0 +1,433 @@
+@font-face {
+    font-family: "Space-Grotesk";
+    src: url("/fonts/SpaceGrotesk-VariableFont_wght.ttf");
+  }
+  
+  :root {
+    --black: #151515;
+    --green: #4ee1a0;
+    --dark: #242424;
+    --grey: #d9d9d9;
+    --white: #ffffff;
+  }
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: "Space-Grotesk";
+    background-color: var(--black);
+    overflow-x: hidden;
+  }
+  .container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  /* ================Utality Classes=============== */
+  .contact span {
+    text-transform: uppercase;
+    color: var(--white);
+    cursor: pointer;
+    position: relative;
+  }
+  .contact span a{
+    text-transform: uppercase;
+    color: var(--white);
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+  }
+  .contact span::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    background-color: var(--green);
+    height: 2px;
+    bottom: -10px;
+  }
+  .contact span:hover {
+    color: var(--green);
+  }
+  .contact span:hover a {
+    color: var(--green);
+  }
+  .heading {
+    font-size: 3rem;
+    color: var(--white);
+  }
+  /*===============navbar================= */
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--white);
+    padding: 2rem 0;
+    z-index: 10;
+  }
+  
+  nav .logo {
+    font-size: 1.2rem;
+  }
+  nav .social_icons img {
+    width: 25%;
+    padding-left: 15px;
+  }
+
+  /*===============showcase================= */
+header {
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+  
+  header .left h2 {
+    font-size: 5rem;
+    letter-spacing: 5px;
+    color: var(--white);
+  }
+  header .left .name span {
+    position: relative;
+  }
+  header .left .name span::before {
+    position: absolute;
+    width: 100%;
+    content: "";
+    background-color: var(--green);
+    height: 5px;
+    bottom: 0;
+  }
+  header .left .about {
+    color: var(--grey);
+    width: 50%;
+    margin: 2rem 0;
+    line-height: 1.7;
+    font-size: 1.2rem;
+  }
+  header .right {
+    width: 30%;
+    z-index: -1;
+    position: relative;
+  }
+  header .right .profile_img img {
+    /* width: 100%; */
+    width: 650px;
+    height: auto;
+    object-fit: cover;
+    transform: translateY(2%);
+    transform: translateX(-40%);
+  }
+  .img_ring {
+    position: absolute;
+  }
+  .img_ring img {
+    width: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -40%);
+  }
+  header .right > img {
+    position: absolute;
+    object-fit: cover;
+    top: 70%;
+    transform: translate(-50%, -50%);
+  }
+  header::before {
+    position: absolute;
+    content: "";
+    background-color: var(--dark);
+    height: 3px;
+    width: 100%;
+    bottom: -5%;
+  }
+  /*===============Skills================= */
+.skills {
+    color: var(--white);
+    width: 110%;
+    position: relative;
+  }
+  
+  .skills .sk_content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 4rem;
+    margin: 6rem 0;
+  }
+  .skills h2 {
+    font-size: 2.5rem;
+  }
+  .ring_skills {
+    position: absolute;
+    right: -25%;
+    top: 70%;
+  }
+  /*===============Project================= */
+.proj_content {
+    margin: 3rem 0;
+  }
+  
+  .headings {
+    display: flex;
+    justify-content: space-between;
+  }
+  .pro_imgs {
+    margin: 2rem 0;
+  }
+  .img_content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+    color: var(--white);
+    text-transform: uppercase;
+  }
+  .img_content p {
+    color: var(--grey);
+  }
+  .img_content img {
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+  .pro {
+    position: relative;
+    cursor: pointer;
+  }
+  .pro .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+  }
+  .over_content {
+    position: absolute;
+    top: 60%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  .over_content p {
+    text-align: center;
+    margin: 10px 0;
+  }
+  .over_content p a {
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 2px solid var(--green);
+  }
+  .pro:hover .overlay {
+    display: block;
+  }
+
+  /*===============Contact================= */
+footer {
+    background-color: var(--dark);
+  }
+  
+  .contact_section {
+    padding: 4rem 0;
+  }
+  .contact_fields {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+  }
+  .contact_details {
+    color: var(--grey);
+    text-align: justify;
+    width: 70%;
+  }
+  .contact_details p {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  .form_fields form input,
+  textarea {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-family: inherit;
+    background: transparent;
+    border-bottom: 1px solid var(--grey);
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+    font-size: 1rem;
+    resize: none;
+  }
+  .form_fields button {
+    display: block;
+    margin-left: auto;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--grey);
+    cursor: pointer;
+  }
+  .form_fields button:hover {
+    border-bottom: 1px solid var(--green);
+    color: var(--green);
+  }
+  .copyright_content nav {
+    border-top: 1px solid var(--grey);
+  }
+
+  @media (max-width: 1024px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+    .heading {
+      font-size: 2.5rem;
+    }
+  
+  header .left h2 {
+      font-size: 4rem;
+      letter-spacing: 4px;
+    }
+    header .right {
+      width: 55%;
+      z-index: -1;
+    }
+    header .left .about {
+      width: 70%;
+    }
+    .skills {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+    .ring_skills {
+      position: absolute;
+      right: -40%;
+      top: 70%;
+    }
+    .pro .overlay {
+      height: 85%;
+    }
+    .over_content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+  }
+  
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+    .heading {
+      font-size: 2rem;
+    }
+    nav {
+      width: 100%;
+      row-gap: 1rem;
+    }
+    header {
+      height: 40vh;
+    }
+    header .left h2 {
+      font-size: 3rem;
+      letter-spacing: 3px;
+    }
+    header .left .about {
+      font-size: 1rem;
+    }
+    header .right {
+      width: 65%;
+    }
+    header .right {
+      overflow-x: hidden;
+    }
+    header .right > img {
+      width: 50%;
+      transform: translate(150%, -80%);
+    }
+    /* header .right .profile_img img {
+      content: url("/images/image-profile-tablet.webp");
+      transform: translateY(-15%);
+      height: auto;
+      object-fit: cover;
+    } */
+    .skills .sk_content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .pro .overlay {
+      height: 80.5%;
+    }
+    .contact_section {
+      width: 100%;
+    }
+    .contact_fields {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  
+  @media ((max-width: 767px) and (min-width: 320px)) {
+    nav {
+      flex-direction: column;
+    }
+    header {
+      flex-direction: column;
+      height: 100vh;
+    }
+    header .left h2 {
+      font-size: 2rem;
+      text-align: center;
+    }
+    header .left .about {
+      font-size: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+    header .right > img {
+      width: 50%;
+      transform: translate(100%, -50%);
+    }
+    header .right .profile_img img {
+      /* content: url("/images/image-profile-mobile.webp"); */
+      width: 500px;
+      height: fit-content;
+      object-fit: cover;
+    }
+    .contact {
+      text-align: center;
+    }
+    .skills {
+      width: 100%;
+      text-align: center;
+    }
+    .skills .sk_content {
+      grid-template-columns: 1fr;
+    }
+    .ring_skills {
+      right: -50%;
+      top: 70%;
+    }
+    .pro .overlay {
+      height: 88.5%;
+    }
+    .img_content {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 375px) {
+    header {
+      height: 85vh;
+    }
+    header .right {
+      overflow: hidden;
+    }
+  }
