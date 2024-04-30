@@ -1,21 +1,26 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Получаем данные из POST запроса
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $text = $_POST['text'];
+    $message = $_POST['message'];
 
-    $to = "mirjalilovodil@gmail.com";
-    $subject = "Message from Website";
-    $message = "Name: $name\nEmail: $email\nMessage: $text";
+    // Пример отправки email
+    $to = "your_email@example.com"; // Замените на свой email
+    $subject = "New Message from Contact Form";
+    $body = "Name: $name\nEmail: $email\nMessage: $message";
+    $headers = "From: $email";
 
-    // Additional headers
-    $headers = "From: $email\r\n";
-
-    // Send email
-    if (mail($to, $subject, $message, $headers)) {
-        echo "<p>Thank you! Your message has been sent.</p>";
+    // Отправка email
+    if (mail($to, $subject, $body, $headers)) {
+        http_response_code(200); // Успешный ответ
+        echo json_encode(array("message" => "Message sent successfully."));
     } else {
-        echo "<p>Oops! Something went wrong and we couldn't send your message.</p>";
+        http_response_code(500); // Ошибка сервера
+        echo json_encode(array("message" => "Failed to send message."));
     }
+} else {
+    http_response_code(400); // Некорректный запрос
+    echo json_encode(array("message" => "Invalid request."));
 }
 ?>

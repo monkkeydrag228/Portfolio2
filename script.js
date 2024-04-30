@@ -1,25 +1,24 @@
-jQuery(document).ready(function() {
-    jQuery('form').validate(); // Инициализация jQuery Validation для всех форм на странице
+$(document).ready(function() {
+    $('#contactForm').validate(); // Инициализация jQuery Validation для формы
 
-    jQuery('form').submit(function(e) {
-        e.preventDefault();
-        var form = jQuery(this);
+    $('#contactForm').submit(function(e) {
+        e.preventDefault(); // Предотвращаем отправку формы по умолчанию
 
-        if (form.valid()) { // Теперь метод valid() будет доступен для проверки валидности формы
-            form.css('opacity', '.5');
-            var actUrl = form.attr('action');
+        if ($(this).valid()) { // Проверяем валидность формы
+            $(this).css('opacity', '0.5'); // Устанавливаем непрозрачность формы
 
-            jQuery.ajax({
-                url: actUrl,
-                type: 'post',
-                dataType: 'html',
-                data: form.serialize(),
-                success: function(data) {
-                    form.html(data);
-                    form.css('opacity', '1');
+            $.ajax({
+                url: $(this).attr('action'),
+                type: 'POST',
+                dataType: 'json',
+                data: $(this).serialize(), // Сериализуем данные формы для отправки
+                success: function(response) {
+                    $('#contactForm').css('opacity', '1'); // Восстанавливаем прозрачность формы
+                    $('#statusMessage').html('<p>Message sent successfully!</p>'); // Выводим сообщение об успешной отправке
                 },
-                error: function() {
-                    form.find('.status').html('серверная ошибка');
+                error: function(xhr, status, error) {
+                    console.error(xhr.responseText); // Выводим ошибку в консоль
+                    $('#statusMessage').html('<p>Failed to send message. Please try again later.</p>'); // Выводим сообщение об ошибке
                 }
             });
         }
