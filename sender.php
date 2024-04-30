@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(array("message" => "Message sent successfully."));
     } else {
         http_response_code(500); // Ошибка сервера
-        echo json_encode(array("message" => "Failed to send message."));
+        echo json_encode(array("message" => "Failed     to send message."));
     }
 } else {
     http_response_code(400); // Некорректный запрос
